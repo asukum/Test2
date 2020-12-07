@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201207 15:37:54.133" rpa="false">
+<suite id="s1" name="TEst GET Request" source="C:\Users\arunk\PycharmProjects\pythonProject1\TestCases\TEst_GET_Request.robot">
+<test id="s1-t1" name="Get_Login">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20201207 15:37:54.366" level="INFO">Creating Session using : alias=mysession, url=https://clarity.dexcom.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20201207 15:37:54.366" endtime="20201207 15:37:54.366"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/users/auth/dexcom_sts</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.519" level="INFO">GET Request : url=https://clarity.dexcom.com/users/auth/dexcom_sts (redirected) 
+ path_url=/users/auth/dexcom_sts 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20201207 15:37:55.519" level="INFO">GET Response : url=https://uam1.dexcom.com/identity/login?signin=d41eee6af9d3c3fcec6863407977b338 
+ status=200, reason=OK 
+ body=&lt;!DOCTYPE html&gt;&lt;html ng-app="userManagementWebAppLogin"&gt;&lt;head&gt;&lt;!--[if gte IE 9 | !IE ]&gt;
+		&lt;script async src="https://www.googletagmanager.com/gtag/js?id=UA-130780636-5"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() { dataLayer.push(arguments); }
+
+			gtag('js', new Date());
+
+			gtag('config', 'UA-130780636-5');
+		&lt;/script&gt;
+	&lt;![endif]--&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"&gt;&lt;link rel="stylesheet" href="/assets/favicon.ico"&gt;&lt;title&gt;Dexcom - Account Management&lt;/title&gt;&lt;link href="/assets/themes/dexcom-new/css/popup.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/popup-element.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/dexcom.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/less/app.min.css?v=1588892804366" rel="stylesheet"&gt;&lt;script src="/libs/angular-1.3.14/angular.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/libs/jQuery/jquery-2.1.3.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/once.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/themes/dexcom-new/scripts/popup.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/menu_helper.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt;function autoResize(frameObj) {
+			var newheight;
+			if (document.getElementById) {
+				newheight = frameObj.contentWindow.document.body.scrollHeight;
+			}
+			frameObj.height = (newheight) + "px";
+		}&lt;/script&gt;&lt;/head&gt;&lt;body ng-controller="loginController" class="html not-front not-logged-in page-user page-user-register context-user dexcom-page-user-register no-sidebars" ng-show="viewData.areResourcesLoaded==true &amp;&amp; sessionService.isAuthenticated()==false &amp;&amp; viewData.model!==undefined" ng-cloak&gt;&lt;div class="page clearfix" id="page"&gt;&lt;ng-include src="'/app/partials/header.html'"&gt;&lt;/ng-include&gt;&lt;section id="section-content" class="section section-content"&gt;&lt;div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix"&gt;&lt;div id="zone-content" class="zone zone-content clearfix container-12"&gt;&lt;div id="messages" class="grid-12" ng-if="viewData.loginErrors.length&gt;0"&gt;&lt;div class="messages error"&gt;&lt;h2 class="element-invisible"&gt;Error message&lt;/h2&gt;&lt;ul&gt;&lt;li ng-repeat="error in viewData.loginErrors track by $index"&gt;&lt;span ng-bind-html="methods.getErrorString(error, true)"&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="element-invisible"&gt;&lt;h1 class="title" id="page-title"&gt;{{methods.getResourceString('__USER_ACCOUNT_TITLE_NEW__')}}&lt;/h1&gt;&lt;/div&gt;&lt;div class="zone-wrapper"&gt;&lt;div class="zone-wrapper-inner"&gt;&lt;div class="zone-content"&gt;&lt;div class="grid-12 region region-content" id="region-content"&gt;&lt;div class="region-inner region-content-inner"&gt;&lt;a id="main-content"&gt;&lt;/a&gt;&lt;div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main"&gt;&lt;div class="block-inner clearfix"&gt;&lt;div class="content clearfix"&gt;&lt;login-control dex-resource-helper="resourceHelper" dex-storage-service="storageService" dex-af-token="viewData.model.antiForgery" dex-action-url="viewData.model.loginUrl" dex-errors="viewData.loginErrors" on-create-account-request="uiEvents.onCreateAccountClick($event)" on-login-info-request="uiEvents.onLoginInfoRequest($event)" on-add-dependent-request="uiEvents.onAddDependentRequest($event)" user-name="viewData.model.username"&gt;&lt;/login-control&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;ng-include src="'/app/partials/footer.html'" ng-if="!viewData.isMobileMode"&gt;&lt;/ng-include&gt;&lt;/div&gt;&lt;script id="modelJson" type="application/json"&gt;{&amp;quot;loginUrl&amp;quot;:&amp;quot;/identity/login?signin=d41eee6af9d3c3fcec6863407977b338&amp;quot;,&amp;quot;antiForgery&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;idsrv.xsrf&amp;quot;,&amp;quot;value&amp;quot;:&amp;quot;ROlVRUA4BbXKopZ_aiLYzrOlou3XjEy-jvWkQf5jz5chtzVD78_ta-V-vFowUtj1qP0jA6t2uU1QdG_LCWdTbhAETy-hhx5apcIGASmo0kY&amp;quot;},&amp;quot;allowRememberMe&amp;quot;:true,&amp;quot;rememberMe&amp;quot;:false,&amp;quot;username&amp;quot;:null,&amp;quot;externalProviders&amp;quot;:[{&amp;quot;type&amp;quot;:&amp;quot;adfs&amp;quot;,&amp;quot;text&amp;quot;:&amp;quot;ADFS&amp;quot;,&amp;quot;href&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/external?provider=adfs&amp;amp;signin=d41eee6af9d3c3fcec6863407977b338&amp;quot;},{&amp;quot;type&amp;quot;:&amp;quot;savvy&amp;quot;,&amp;quot;text&amp;quot;:&amp;quot;Savvy&amp;quot;,&amp;quot;href&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/external?provider=savvy&amp;amp;signin=d41eee6af9d3c3fcec6863407977b338&amp;quot;}],&amp;quot;additionalLinks&amp;quot;:null,&amp;quot;clientName&amp;quot;:&amp;quot;Clarity&amp;quot;,&amp;quot;clientUrl&amp;quot;:&amp;quot;https://www.clarity.com&amp;quot;,&amp;quot;clientLogoUrl&amp;quot;:null,&amp;quot;errorMessage&amp;quot;:null,&amp;quot;requestId&amp;quot;:&amp;quot;e6cd2924-30d0-45e4-aab4-bfd4bc8a6dfb&amp;quot;,&amp;quot;siteUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/&amp;quot;,&amp;quot;siteName&amp;quot;:&amp;quot;DexcomSTS&amp;quot;,&amp;quot;currentUser&amp;quot;:null,&amp;quot;logoutUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/logout&amp;quot;,&amp;quot;custom&amp;quot;:null}&lt;/script&gt;&lt;script id="localeCode" type="application/json"&gt;en-US&lt;/script&gt;&lt;script id="clientId" type="application/json"&gt;DAEC20AC-9626-4B0E-94B5-B674E298F51E&lt;/script&gt;&lt;script id="consentType" type="application/json"&gt;Default&lt;/script&gt;&lt;script id="consentKey" type="application/json"&gt;&lt;/script&gt;&lt;script id="displayMode" type="application/json"&gt;&lt;/script&gt;&lt;script id="returnUrl" type="application/json"&gt;https://uam1.dexcom.com/identity/connect/authorize?client_id=DAEC20AC-9626-4B0E-94B5-B674E298F51E&amp;prompt&amp;redirect_uri=https%3A%2F%2Fclarity.dexcom.com%2Fusers%2Fauth%2Fdexcom_sts%2Fcallback&amp;response_type=code&amp;scope=openid%20profile%20offline_access&amp;state=c65f5110c0e8ca5a64ee30156be2dd126baa15d6ebd994c4&amp;ui_locales=en-US&lt;/script&gt;&lt;script id="isLoginOnly" type="application/json"&gt;&lt;/script&gt;&lt;script src="/libs/platform/platform.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/dex.BrowserCheck/browserValidator.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/underscore-1.6.0/underscore.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-route.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-animate.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-resource.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-gettext-0.2.9/angular-gettext.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/encoder/encoder.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/dexEnvironment.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/components.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/dex.StsLogin/dex.StsLogin.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/dex.UIComponents/dex.UIComponents.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/login.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+
+
+ 
+ </msg>
+<msg timestamp="20201207 15:37:55.519" level="INFO">c:\users\arunk\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'clarity.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+c:\users\arunk\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'uam1.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(
+c:\users\arunk\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'uam1.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20201207 15:37:55.519" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201207 15:37:54.366" endtime="20201207 15:37:55.519"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.519" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20201207 15:37:55.519" endtime="20201207 15:37:55.519"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201207 15:37:55.519" endtime="20201207 15:37:55.527"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.url}</arg>
+</arguments>
+<assign>
+<var>${signInUrl}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.527" level="INFO">${signInUrl} = https://uam1.dexcom.com/identity/login?signin=d41eee6af9d3c3fcec6863407977b338</msg>
+<status status="PASS" starttime="20201207 15:37:55.527" endtime="20201207 15:37:55.527"></status>
+</kw>
+<kw name="Urlparse" library="urllib.parse">
+<doc>Parse a URL into 6 components:
+&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;fragment&gt;</doc>
+<arguments>
+<arg>${signInUrl}</arg>
+</arguments>
+<assign>
+<var>${parsedurl}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.527" level="INFO">${parsedurl} = ParseResult(scheme='https', netloc='uam1.dexcom.com', path='/identity/login', params='', query='signin=d41eee6af9d3c3fcec6863407977b338', fragment='')</msg>
+<status status="PASS" starttime="20201207 15:37:55.527" endtime="20201207 15:37:55.527"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${parsedurl.query}</arg>
+</arguments>
+<assign>
+<var>${accessToken}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.527" level="INFO">${accessToken} = signin=d41eee6af9d3c3fcec6863407977b338</msg>
+<status status="PASS" starttime="20201207 15:37:55.527" endtime="20201207 15:37:55.527"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>codechallenge</arg>
+<arg>Password123</arg>
+</arguments>
+<assign>
+<var>${auth}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.527" level="INFO">${auth} = ['codechallenge', 'Password123']</msg>
+<status status="PASS" starttime="20201207 15:37:55.527" endtime="20201207 15:37:55.527"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${login_url}</arg>
+<arg>auth=${auth}</arg>
+</arguments>
+<msg timestamp="20201207 15:37:55.535" level="INFO">Creating Session using : alias=mysession, url=https://uam1.dexcom.com, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000021C9C389B50&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20201207 15:37:55.527" endtime="20201207 15:37:55.535"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/identity/login</arg>
+<arg>params=${accessToken}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201207 15:37:55.804" level="INFO">GET Request : url=https://uam1.dexcom.com/identity/login?signin=d41eee6af9d3c3fcec6863407977b338 
+ path_url=/identity/login?signin=d41eee6af9d3c3fcec6863407977b338 
+ headers={'User-Agent': 'python-requests/2.25.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic Y29kZWNoYWxsZW5nZTpQYXNzd29yZDEyMw=='} 
+ body=None 
+ </msg>
+<msg timestamp="20201207 15:37:55.804" level="INFO">GET Response : url=https://uam1.dexcom.com/identity/login?signin=d41eee6af9d3c3fcec6863407977b338 
+ status=200, reason=OK 
+ body=&lt;!DOCTYPE html&gt;&lt;html ng-app="userManagementWebAppError"&gt;&lt;head&gt;&lt;script async src="https://www.googletagmanager.com/gtag/js?id=UA-130780636-4"&gt;&lt;/script&gt;&lt;script&gt;window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-130780636-4');&lt;/script&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"&gt;&lt;link rel="shortcut icon" href="/assets/favicon.ico" type="image/vnd.microsoft.icon"&gt;&lt;title&gt;Dexcom - Account Management&lt;/title&gt;&lt;link href="/assets/themes/dexcom-new/css/popup.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/popup-element.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/dexcom.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/less/app.min.css?v=1588892804366" rel="stylesheet"&gt;&lt;script src="/libs/angular-1.3.14/angular.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/libs/jQuery/jquery-2.1.3.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/once.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/themes/dexcom-new/scripts/popup.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/menu_helper.js?v=1588892804366"&gt;&lt;/script&gt;&lt;/head&gt;&lt;body ng-controller="errorController"&gt;&lt;div class="page clearfix" id="page"&gt;&lt;ng-include src="'/app/partials/header.html'"&gt;&lt;/ng-include&gt;&lt;section id="section-content" class="section section-content"&gt;&lt;div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix"&gt;&lt;div id="zone-content" class="zone zone-content clearfix container-12" ng-cloak&gt;&lt;div id="messages" class="grid-12" ng-show="model.errorMessage"&gt;&lt;div class="messages error"&gt;&lt;strong&gt;{{resourceHelper.getResourceString('__ERROR_TITLE__')}}&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="zone-wrapper"&gt;&lt;div class="zone-wrapper-inner"&gt;&lt;div class="zone-content"&gt;&lt;span ng-show="viewData.model.errorMessage"&gt;{{viewData.model.errorMessage}}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;ng-include src="'/app/partials/footer.html'"&gt;&lt;/ng-include&gt;&lt;/div&gt;&lt;script id="modelJson" type="application/json"&gt;{&amp;quot;errorMessage&amp;quot;:&amp;quot;There is an error determining which application you are signing into. Return to the application and try again.&amp;quot;,&amp;quot;requestId&amp;quot;:&amp;quot;31b8d877-290d-4d01-b8a9-c12aa77a47a9&amp;quot;,&amp;quot;siteUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/&amp;quot;,&amp;quot;siteName&amp;quot;:&amp;quot;DexcomSTS&amp;quot;,&amp;quot;currentUser&amp;quot;:null,&amp;quot;logoutUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/logout&amp;quot;,&amp;quot;custom&amp;quot;:null}&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-route.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-resource.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/underscore-1.6.0/underscore.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-gettext-0.2.9/angular-gettext.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/dexEnvironment.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/encoder/encoder.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/components.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/error.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+
+
+ 
+ </msg>
+<msg timestamp="20201207 15:37:55.804" level="INFO">c:\users\arunk\pycharmprojects\pythonproject1\venv\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'uam1.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20201207 15:37:55.804" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201207 15:37:55.537" endtime="20201207 15:37:55.804"></status>
+</kw>
+<status status="PASS" starttime="20201207 15:37:54.366" endtime="20201207 15:37:55.804" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20201207 15:37:54.133" endtime="20201207 15:37:55.820"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="TEst GET Request">TEst GET Request</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
